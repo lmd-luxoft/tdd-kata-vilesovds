@@ -26,12 +26,12 @@ TEST(TDDKata, PositiveZero) {
 TEST(TDDKata, PositiveOne) {
 	// arrange
 	Calculator calc;
-	char* nums = "0";
+	char* nums = "1";
 	// act
 	int res = calc.Add(nums);
 	//assert
 
-	ASSERT_EQ(res, 0);
+	ASSERT_EQ(res, 1);
 }
 
 TEST(TDDKata, PositiveTwo) {
@@ -97,7 +97,7 @@ TEST(TDDKata, NegativeWrongSeparator) {
 	int res = calc.Add(nums);
 	//assert
 
-	ASSERT_EQ(res, -2);
+	ASSERT_EQ(res, -1);
 }
 
 
