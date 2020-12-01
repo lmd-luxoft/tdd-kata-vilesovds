@@ -111,3 +111,14 @@ TEST(TDDKata, NegativeWrongCountOfNumbers) {
 
 	ASSERT_EQ(res, -3);
 }
+
+TEST(TDDKata, PositiveFewCountOfNumbers) {
+	// arrange
+	Calculator calc;
+	char* nums = "1,2,3,4,5,6";
+	// act
+	int res = calc.Add(nums);
+	//assert
+
+	ASSERT_EQ(res, 21);
+}
