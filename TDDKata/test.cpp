@@ -112,3 +112,25 @@ TEST(TDDKata, PositiveFewCountOfNumbers) {
 
 	ASSERT_EQ(res, 21);
 }
+
+TEST(TDDKata, PositiveNewLineSeparator) {
+	// arrange
+	Calculator calc;
+	char* nums = "1\n,2,3";
+	// act
+	int res = calc.Add(nums);
+	//assert
+
+	ASSERT_EQ(res, 6);
+}
+
+TEST(TDDKata, NegativeNewLineSeparator) {
+	// arrange
+	Calculator calc;
+	char* nums = "1,\n";
+	// act
+	int res = calc.Add(nums);
+	//assert
+
+	ASSERT_EQ(res, -1);
+}
