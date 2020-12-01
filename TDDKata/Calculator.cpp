@@ -17,6 +17,23 @@ int Calculator::Add(char* expression)
         return 0;
     if (strstr(dup, ",\n") != NULL)
         return -1;
+    char* new_delim = strstr(dup, "//");
+    if ((new_delim) && (new_delim == dup)) {
+        if (strstr(dup, "\n") == NULL) {
+            return -1;
+        } else {
+            char * dup2 = strdup(dup);
+            strcpy(dup2, new_delim + 2);
+            char *ch = dup2;
+            while (*ch != '\n')
+                ch++;
+            *ch = 0;
+            delim = dup2;
+
+            dup = strstr(dup, "\n") + 1 ;
+
+        }
+    }
     
     char* operand  = strtok(dup, delim);
     while (operand != NULL){
