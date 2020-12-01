@@ -12,7 +12,6 @@ int Calculator::Add(char* expression)
     const char* delim = ",";
     char* dup = strdup(expression);
     int sum = 0;
-    int num_counts = 0;
     size_t len = strlen(expression);
     if (!len)
         return 0;
@@ -26,9 +25,6 @@ int Calculator::Add(char* expression)
         }
 
         sum += atoi(operand);
-        num_counts++;
-        if (num_counts > 3)
-            return -3;
         operand = strtok(NULL, delim);
     } 
 
