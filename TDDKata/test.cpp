@@ -134,3 +134,25 @@ TEST(TDDKata, NegativeNewLineSeparator) {
 
 	ASSERT_EQ(res, -1);
 }
+
+TEST(TDDKata, PositiveSetSeparator) {
+	// arrange
+	Calculator calc;
+	char* nums = "//;\n1;2";
+	// act
+	int res = calc.Add(nums);
+	//assert
+
+	ASSERT_EQ(res, 3);
+}
+
+TEST(TDDKata, NegativeSetSeparatorNoNeLine) {
+	// arrange
+	Calculator calc;
+	char* nums = "//;1;2";
+	// act
+	int res = calc.Add(nums);
+	//assert
+
+	ASSERT_EQ(res, -1);
+}
