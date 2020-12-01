@@ -9,12 +9,15 @@ int Calculator::Add(std::string expression)
 
 int Calculator::Add(char* expression)
 {
-    const char* delim = ",";
+    const char* delim = ",\n";
     char* dup = strdup(expression);
     int sum = 0;
     size_t len = strlen(expression);
     if (!len)
         return 0;
+    if (strstr(dup, ",\n") != NULL)
+        return -1;
+    
     char* operand  = strtok(dup, delim);
     while (operand != NULL){
         char* ch = operand;
