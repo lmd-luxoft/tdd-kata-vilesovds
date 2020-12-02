@@ -1,158 +1,153 @@
 #include "pch.h"
 #include "Calculator.h"
-TEST(TDDKata, PositiveUsual) {
+#include "TestFixture.h"
+TEST_F(TestFixture, PositiveUsual) {
 	// arrange
-	Calculator calc;
 	char* nums = "0,1,2";
+	int expected = 3;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
-
-	ASSERT_EQ(res, 3);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, PositiveZero) {
+TEST_F(TestFixture, PositiveZero) {
 	// arrange
-	Calculator calc;
 	char* nums = "0,0,0";
+	int expected = 0;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
-
-	ASSERT_EQ(res, 0);
+	ASSERT_EQ(actual, expected);
 }
 
 
-TEST(TDDKata, PositiveOne) {
+TEST_F(TestFixture, PositiveOne) {
 	// arrange
-	Calculator calc;
 	char* nums = "1";
+	int expected = 1;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, 1);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, PositiveTwo) {
+TEST_F(TestFixture, PositiveTwo) {
 	// arrange
-	Calculator calc;
 	char* nums = "1,2";
+	int expected = 3;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, 3);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, PositiveEmpty) {
+TEST_F(TestFixture, PositiveEmpty) {
 	// arrange
-	Calculator calc;
 	char* nums = "";
+	int expected = 0;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, 0);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, NegativeNotNumAll) {
+TEST_F(TestFixture, NegativeNotNumAll) {
 	// arrange
-	Calculator calc;
 	char* nums = "abc";
+	int expected = -1;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, -1);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, NegativeNotNumOne) {
+TEST_F(TestFixture, NegativeNotNumOne) {
 	// arrange
-	Calculator calc;
 	char* nums = "a,1,2";
+	int expected = -1;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, -1);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, NegativeNotNumOneAtEnd) {
+TEST_F(TestFixture, NegativeNotNumOneAtEnd) {
 	// arrange
-	Calculator calc;
 	char* nums = "1,2,a";
+	int expected = -1;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
-
-	ASSERT_EQ(res, -1);
+	ASSERT_EQ(actual, -1);
 }
 
-TEST(TDDKata, NegativeWrongSeparator) {
+TEST_F(TestFixture, NegativeWrongSeparator) {
 	// arrange
-	Calculator calc;
 	char* nums = "1 2";
+	int expected = -1;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, -1);
+	ASSERT_EQ(actual, expected);
 }
 
 
 
-TEST(TDDKata, PositiveFewCountOfNumbers) {
+TEST_F(TestFixture, PositiveFewCountOfNumbers) {
 	// arrange
-	Calculator calc;
 	char* nums = "1,2,3,4,5,6";
+	int expected = 21;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
-
-	ASSERT_EQ(res, 21);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, PositiveNewLineSeparator) {
+TEST_F(TestFixture, PositiveNewLineSeparator) {
 	// arrange
-	Calculator calc;
 	char* nums = "1\n,2,3";
+	int expected = 6;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
-
-	ASSERT_EQ(res, 6);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, NegativeNewLineSeparator) {
+TEST_F(TestFixture, NegativeNewLineSeparator) {
 	// arrange
-	Calculator calc;
 	char* nums = "1,\n";
+	int expected = -1;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
-
-	ASSERT_EQ(res, -1);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, PositiveSetSeparator) {
+TEST_F(TestFixture, PositiveSetSeparator) {
 	// arrange
-	Calculator calc;
 	char* nums = "//;\n1;2";
+	int expected = 3;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, 3);
+	ASSERT_EQ(actual, expected);
 }
 
-TEST(TDDKata, NegativeSetSeparatorNoNeLine) {
+TEST_F(TestFixture, NegativeSetSeparatorNoNeLine) {
 	// arrange
-	Calculator calc;
 	char* nums = "//;1;2";
+	int expected = -1;
 	// act
-	int res = calc.Add(nums);
+	int actual = calc->Add(nums);
 	//assert
 
-	ASSERT_EQ(res, -1);
+	ASSERT_EQ(actual, expected);
 }
