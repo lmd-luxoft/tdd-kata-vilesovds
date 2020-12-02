@@ -5,6 +5,9 @@
 /// </summary>
 class Calculator
 {
+	
+public:
+
 	/// <summary>
 	/// Sum of elements expression
 	/// </summary>
@@ -16,6 +19,6 @@ class Calculator
 	/// </summary>
 	/// <param name="expression">Input expression</param>
 	/// <returns>Value of sum expression of expression</returns>
-	int Add(char* expression);
+	int Add(const char* expression);
 };
 
