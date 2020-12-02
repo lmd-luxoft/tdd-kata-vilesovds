@@ -7,7 +7,7 @@ int Calculator::Add(std::string expression)
     return 0;
 }
 
-int Calculator::Add(char* expression)
+int Calculator::Add(const char* expression)
 {
     const char* delim = ",\n";
     char* dup = strdup(expression);

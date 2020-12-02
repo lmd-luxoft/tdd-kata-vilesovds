@@ -35,10 +35,12 @@
   <ItemGroup>
     <ClInclude Include="Calculator.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TestFixtureWithParam.h" />
     <ClInclude Include="TestFixture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="TestFixtureWithParam.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

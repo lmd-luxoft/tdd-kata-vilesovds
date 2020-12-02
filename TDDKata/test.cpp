@@ -1,6 +1,19 @@
 #include "pch.h"
 #include "Calculator.h"
 #include "TestFixture.h"
+#include "TestFixtureWithParam.h"
+
+
+TEST_P(TestFixtureWithParam, Sets)
+{
+	const char* nums = GetParam().expression;
+	int expected = GetParam().expected;
+	// act
+	int actual = calc->Add(nums);
+	//assert
+	ASSERT_EQ(actual, expected);
+}
+/*
 TEST_F(TestFixture, PositiveUsual) {
 	// arrange
 	char* nums = "0,1,2";
@@ -98,8 +111,6 @@ TEST_F(TestFixture, NegativeWrongSeparator) {
 	ASSERT_EQ(actual, expected);
 }
 
-
-
 TEST_F(TestFixture, PositiveFewCountOfNumbers) {
 	// arrange
 	char* nums = "1,2,3,4,5,6";
@@ -120,6 +131,7 @@ TEST_F(TestFixture, PositiveNewLineSeparator) {
 	ASSERT_EQ(actual, expected);
 }
 
+
 TEST_F(TestFixture, NegativeNewLineSeparator) {
 	// arrange
 	char* nums = "1,\n";
@@ -129,7 +141,6 @@ TEST_F(TestFixture, NegativeNewLineSeparator) {
 	//assert
 	ASSERT_EQ(actual, expected);
 }
-
 TEST_F(TestFixture, PositiveSetSeparator) {
 	// arrange
 	char* nums = "//;\n1;2";
@@ -151,3 +162,4 @@ TEST_F(TestFixture, NegativeSetSeparatorNoNeLine) {
 
 	ASSERT_EQ(actual, expected);
 }
+*/
